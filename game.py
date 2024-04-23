@@ -149,3 +149,13 @@ class Game(arcade.Window):
 
         self.asteroids = [asteroid for asteroid in self.asteroids if asteroid not in colliding_asteroids]
         self.bullets = [bullet for bullet in self.bullets if bullet not in colliding_bullets]
+
+for bullet in self.bullets:
+    for asteroid in self.asteroids:
+        if bullet.hitbox.collides_with(asteroid.hitbox):
+            colliding_asteroids.append(asteroid)
+            colliding_bullets.append(bullet)
+
+for asteroid in self.asteroids:
+    if self.spacehip.hitbox.collides_with(asteroid_hitbox):
+        self.gameover = True
